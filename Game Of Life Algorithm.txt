@@ -1,0 +1,40 @@
+Initially
+	boolean cellState [] [] = new boolean [screenWidth] [screenHeight];
+	boolean neighbours [] [] = new boolean [screenWidth] [screenHeight];
+When button "step" is clicked
+// Count neighbours
+	for int x = 1; x < screenWidth-1; x++;
+		for y = 1; y < screenHeight-1; y++;
+			int n = 0;
+			if cellState [x - 1] [y - 1]
+				n += 1;
+			if cellState [x - 1] [y]
+				n += 1;
+			if cellState [x - 1] [y + 1]
+				n += 1;
+			if cellState [x][y - 1]
+				n += 1;
+			if cellState [x][y + 1]
+				n += 1;
+			if cellState [x + 1][y - 1]
+				n += 1;
+			if cellState [x + 1][y]
+				n += 1;
+			if cellState [x + 1][y + 1])
+				n += 1;
+			neighbours[x][y] = n;
+
+// Apply game of life algorithm
+
+	for int x = 1; x < screenWidth-1; x++;
+		for y = 1; y < screenHeight-1; y++;
+			
+			if (cellState[x][y]) AND (neighbours[x][y] < 2) OR (neighbours[x][y] > 3)
+				cellState[x][y] = false;
+
+			else if cellState[x][y] AND (neighbours[x][y] == 3 OR neighbours[x][y] == 2)
+				cellState[x][y] = true;
+
+			else if NOT cellState[x][y] AND neighbours[x][y] == 3
+				cellState[x][y] = true;
+	draw();
